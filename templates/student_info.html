@@ -9,8 +9,24 @@
     <p>GitHub Account: {{ github }}</p>
 
     {% for info in student_info %}
-    <ul><li>{{ first }} got a score of {{ info[1] }} in the {{ info[0] }} project.</li></ul>
+    <ul><li>{{ first }} got a score of {{ info[1] }} in the  <a href="/project?project={{ info[0] }}">{{ info[0] }}</a> project.</li></ul>
     {% endfor %}
+
+    {# <a href="/project?project={{ info[0] }}" > #}
+
+    <p>See Details for...</p>
+
+    <form action="/project">
+        <label>Select project name.
+        {% for info in student_info%}
+            {{ info[0] }}
+            <input type="radio" name="project" value="{{ info[0] }}">
+        {% endfor %}
+        </label>
+      <input type="submit" value="Select Project">
+  </form>
+
+
 
 </body>
 </html>

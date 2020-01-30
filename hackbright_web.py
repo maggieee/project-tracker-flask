@@ -31,6 +31,20 @@ def show_create_student_form():
     return render_template('create_student.html')
 
 
+@app.route("/project")
+def show_project_info():
+
+    title = request.args.get('project')
+
+
+    project = hackbright.get_project_by_title(title)
+
+    grades = hackbright.get_grades_by_title(title)
+
+    return render_template('project_info.html', project=project,
+                                                grades=grades)
+
+
 @app.route("/student-add", methods=['POST'])
 def student_add():
     """Add a student."""
