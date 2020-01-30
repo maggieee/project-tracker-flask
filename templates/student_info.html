@@ -8,5 +8,9 @@
 
     <p>GitHub Account: {{ github }}</p>
 
+    {% for info in student_info %}
+    <ul><li>{{ first }} got a score of {{ info[1] }} in the {{ info[0] }} project.</li></ul>
+    {% endfor %}
+
 </body>
 </html>
